@@ -1,24 +1,29 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import Home from './pages/Home'
+import Store from './pages/Store'
+import ItemDetails from './pages/ItemDetails';
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={<Home />}
+        ></Route>
+        <Route
+          exact
+          path="/store"
+          element={<Store />}
+        ></Route>
+        <Route
+        exact
+        path="/item/:itemId"
+        element={<ItemDetails/>}
+        ></Route>
+      </Routes>
+    </Router>
   );
 }
 
