@@ -1,19 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { CartFill } from 'react-bootstrap-icons'
 import styled from 'styled-components'
 import image from './sample3.jpg'
 import Item from '../components/StoreItems/Item'
 const Store = () => {
-
     const items = [
         {
             img: image,
             name: 'Product 1',
-            price: '$3.00'
+            price: '$1.00'
         },
         {
             img: image,
             name: 'Product 2',
-            price: '$3.00'
+            price: '$2.00'
         },
         {
             img: image,
@@ -23,55 +23,45 @@ const Store = () => {
         {
             img: image,
             name: 'Product 4',
-            price: '$3.00'
+            price: '$4.00'
         },
         {
             img: image,
             name: 'Product 5',
-            price: '$3.00'
+            price: '$5.00'
         }
     ]
+
     return (
-        <Container>
-            <StoreHeader>
-                <h1>THE STORE</h1>
-            </StoreHeader>
-            {/* <Filter>FILTERS WILL GO HERE</Filter> */}
-            <ItemsContainer>
-                {items.map((i, index) => {
+        < ItemsContainer >
+        {
+            items.map(
+                (i, index) => {
                     return (
                         <Item
                             img={i.img}
                             itemName={i.name}
                             price={i.price}
                             key={index}
-                        ></Item>)
-                })}
-            </ItemsContainer>
-        </Container>
-
+                        ></Item>
+                    )
+                }
+            )
+        }
+            </ItemsContainer >
     )
 }
 
 export default Store
 
-const Container = styled.div`
+/* const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     background-color: rgb(239,239,239);
-    top: 0;
-`
-
-const StoreHeader = styled.div`
-    width: 70vw;
-    height: 20vh;
-    margin: 0 15vw;
-    text-align: center;
-    background-color: white;
-    border-radius: 15px;
-`
+ 
+` */
 
 const ItemsContainer = styled.div`
     display: grid;
@@ -85,5 +75,4 @@ const ItemsContainer = styled.div`
     margin-top: 5%;
     height: 90%;
     padding: 5%;
-
 `
